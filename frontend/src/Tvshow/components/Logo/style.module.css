@@ -1,0 +1,26 @@
+.workspace {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.container {
+  display: flex;
+}
+
+.img {
+  height: 40px;
+  width: 40px;
+}
+
+.titre {
+  font-size: 25px;
+  font-weight: 400;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.sous_titre {
+  margin-left: 7px;
+  white-space: nowrap;
+}

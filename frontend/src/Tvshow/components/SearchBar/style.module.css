@@ -1,0 +1,26 @@
+.icon {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: 15px;
+  color: rgb(238, 238, 238);
+}
+
+.tv_search_input::placeholder {
+  color: rgb(238, 238, 238);
+}
+.tv_search_input {
+  width: 100%;
+  border-radius: 30px;
+  background-color: rgba(187, 187, 187, 0.808);
+  height: 40px;
+  /* padding-left: 15px; */
+  padding: 18px 18px 18px 50px;
+  font-weight: 100;
+  font-size: 20px;
+  border-color: transparent;
+  color: white;
+}
+.tv_search_input:focus {
+  outline-width: 0;
+  border: 1px solid white;
+}
