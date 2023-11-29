@@ -48,36 +48,40 @@ export default function TvshowApp() {
   }, [currentTVShow]);
 
   return (
-    <div
-      className={s.main_container}
-      style={{
-        background: currentTVShow ? bacgroundImageUrl(currentTVShow) : "black",
-      }}
-    >
-      <div className={s.header}>
-        <div className="row">
-          <div className="col-4">
-            <Logo
-              image={logo}
-              titre="KoiVoir"
-              sousTitre="Ta prochaine série préférée."
-            />
-          </div>
-          <div className="col-sm-12 col-md-4">
-            <SearchBar onSubmit={searchTVshow} />
+    <div className="demo_space">
+      <div
+        className={s.main_container}
+        style={{
+          background: currentTVShow
+            ? bacgroundImageUrl(currentTVShow)
+            : "black",
+        }}
+      >
+        <div className={s.header}>
+          <div className="row">
+            <div className="col-4">
+              <Logo
+                image={logo}
+                titre="KoiVoir"
+                sousTitre="Ta prochaine série préférée."
+              />
+            </div>
+            <div className="col-sm-12 col-md-4">
+              <SearchBar onSubmit={searchTVshow} />
+            </div>
           </div>
         </div>
-      </div>
-      <div className={s.tv_show_detail}>
-        {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
-      </div>
-      <div className={s.recommandations}>
-        {recommendationList && recommendationList.length > 0 && (
-          <TVShowRecoList
-            tvShowList={recommendationList}
-            onClickItem={setCurrentTVShow}
-          />
-        )}
+        <div className={s.tv_show_detail}>
+          {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
+        </div>
+        <div className={s.recommandations}>
+          {recommendationList && recommendationList.length > 0 && (
+            <TVShowRecoList
+              tvShowList={recommendationList}
+              onClickItem={setCurrentTVShow}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,43 @@
+version: "3"
+services:
+  # React
+  frontend:
+    container_name: REACT-CODIKU-react-container
+    build:
+      context: ./
+    # command: npm run dev
+    volumes:
+      - ./frontend/public:/usr/frontend/public
+      - ./frontend/src:/usr/frontend/src
+      - ./frontend/build:/usr/frontend/build
+      - ./frontend/package.json:/usr/frontend/package.json
+      - ./frontend/.env.local:/usr/frontend/.env.local
+      # ###################################
+      # - ./frontend:/usr/frontend
+      # - ./frontend/ssl:/usr/frontend/ssl
+    ports:
+      - "3000:3000"
+    restart: on-failure:5
+    networks:
+      - app-REACT-CODIKU
+
+  json-server:
+    image: codfish/json-server
+    command: npm run dev
+    volumes:
+      - ./frontend/src/NoteManager/db.json:/app/db.json
+      # - ./routes.json:/app/routes.json:delegated
+      # - ./middleware.js:/app/middleware.js:delegated
+    ports:
+      - "3939:80"
+    environment:
+      VIRTUAL_HOST: locahost
+      # FKS: Address
+      # ID: address
+      # NO_CORS: "true"
+      # NO_GZIP: "true"
+    networks:
+      - app-REACT-CODIKU
+
+networks:
+  app-REACT-CODIKU:

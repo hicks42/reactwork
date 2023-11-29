@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Nav.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Nav.css";
 
 export default function Navbar() {
   return (
@@ -16,12 +16,18 @@ export default function Navbar() {
           <Link to="/basicapps">Basic Apps</Link>
         </li>
         <li>
-          <Link to="/dpApp">Dif picker</Link>
+          <Link to="/dpApp">Difficulty picker</Link>
         </li>
         <li>
           <Link to="/tvshow">TV show</Link>
         </li>
+        <li>
+          <Link to="/expenseTracker">Expenses Tracker</Link>
+        </li>
+        <li>
+          <Link to="/noteManagerApp">Note Manager</Link>
+        </li>
       </ul>
     </nav>
-  )
+  );
 }

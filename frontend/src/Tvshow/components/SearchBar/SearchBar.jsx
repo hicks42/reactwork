@@ -14,7 +14,7 @@ export function SearchBar({ onSubmit }) {
       <input
         onKeyUp={submit}
         type="text"
-        placeholder={"Chercher une dérie TV"}
+        placeholder={"Chercher une série TV"}
         className={s.tv_search_input}
       />
     </div>

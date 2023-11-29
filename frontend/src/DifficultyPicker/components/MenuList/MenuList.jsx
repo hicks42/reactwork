@@ -6,8 +6,9 @@ const difficulties = [null, "Low", "Medium", "high", "Insane"];
 export function MenuList({ onItemClick, difficulty }) {
   return (
     <div className={s.container}>
-      {difficulties.map((diff) => (
+      {difficulties.map((diff, i) => (
         <MenuListItem
+          key={i}
           onClick={onItemClick}
           difficulty={diff}
           isSelected={difficulty == diff}

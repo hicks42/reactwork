@@ -1,22 +1,19 @@
-import { useState } from 'react';
-import './Morpion.css';
+import { useState } from "react";
+import "./Morpion.css";
 
 // #################### square #######################
 
 function Square({ value, onSquareClick, isActive }) {
-  const className = isActive ? 'square active' : 'square';
+  const className = isActive ? "square active" : "square";
   return (
-    <button
-      className={className}
-      onClick={onSquareClick}
-    >
+    <button className={className} onClick={onSquareClick}>
       {value}
-    </button>);
+    </button>
+  );
 }
 
 // #################### board #######################
 function Board({ xIsNext, squares, onPlay }) {
-
   function renderSquare(i, isActive) {
     return (
       <Square
@@ -25,18 +22,17 @@ function Board({ xIsNext, squares, onPlay }) {
         isActive={isActive}
         key={i}
       />
-    )
+    );
   }
 
   function handleClick(i) {
-
     const squareKey = i;
     if (calculateWinner(squares) || squares[i]) {
       return; // #### stop the click si winner ou si la case est pleine ####
     }
 
     // ####### toggle nextSquare value #######
-    const nextSquares = squares.slice();// créer un double
+    const nextSquares = squares.slice(); // créer un double
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
@@ -48,7 +44,6 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   function renderBoard() {
-
     const winner = calculateWinner(squares);
     const winningLine = winner ? winner[1] : []; //si ya winner = winner[1] sinon vide
 
@@ -118,11 +113,15 @@ export default function Game() {
     setXIsNext(nextMove % 2 === 0); // setXIsNext passe à true s'il est pair
   }
 
-
   // ############### voir l'historique ##################
-  const moves = sortAscending ? [...history.keys()] : [...history.keys()].reverse();
+  const moves = sortAscending
+    ? [...history.keys()]
+    : [...history.keys()].reverse();
   const movesList = moves.map((move) => {
-    const description = move === 0 ? 'Recommencer la partie' : 'Aller au coup N°' + move + " / " + allCoords[move - 1];
+    const description =
+      move === 0
+        ? "Recommencer la partie"
+        : "Aller au coup N°" + move + " / " + allCoords[move - 1];
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
@@ -145,21 +144,23 @@ export default function Game() {
 
   return (
     <>
-      <h1>Morpion</h1>
-      <div className="game">
-        <div className="game-board">
-          <Board
-            xIsNext={xIsNext}
-            squares={currentSquares}
-            onPlay={handlePlay}
-          />
-        </div>
-        <div className="game-info">
-          <div> Le dernier coup est :{lastMove}</div>
-          <ol>{movesList}</ol>
-          <button onClick={handleToggleSort}>
-            {sortAscending ? 'Tri décroissant' : 'Tri croissant'}
-          </button>
+      <div className="morpion_container">
+        <h1>Morpion</h1>
+        <div className="game">
+          <div className="game-board">
+            <Board
+              xIsNext={xIsNext}
+              squares={currentSquares}
+              onPlay={handlePlay}
+            />
+          </div>
+          <div className="game-info">
+            <div> Le dernier coup est :{lastMove}</div>
+            <ol>{movesList}</ol>
+            <button onClick={handleToggleSort}>
+              {sortAscending ? "Tri décroissant" : "Tri croissant"}
+            </button>
+          </div>
         </div>
       </div>
     </>
@@ -177,7 +178,7 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
@@ -190,31 +191,38 @@ function calculateWinner(squares) {
   return null;
 }
 
-
 function getCoordy(i) {
-  let coordy
+  let coordy;
   switch (true) {
-    case (i >= 6): coordy = '3';
+    case i >= 6:
+      coordy = "3";
       break;
-    case (i < 6 && i >= 3): coordy = '2';
+    case i < 6 && i >= 3:
+      coordy = "2";
       break;
-    case (i < 3): coordy = '1';
+    case i < 3:
+      coordy = "1";
       break;
-    default: coordy = null;
+    default:
+      coordy = null;
   }
   return coordy;
 }
 
 function getCoordx(i) {
-  let coordx
+  let coordx;
   switch (true) {
-    case (i === 0 || i === 3 || i === 6): coordx = "A";
+    case i === 0 || i === 3 || i === 6:
+      coordx = "A";
       break;
-    case (i === 1 || i === 4 || i === 7): coordx = "B";
+    case i === 1 || i === 4 || i === 7:
+      coordx = "B";
       break;
-    case (i === 2 || i === 5 || i === 8): coordx = "C";
+    case i === 2 || i === 5 || i === 8:
+      coordx = "C";
       break;
-    default: coordx = null;
+    default:
+      coordx = null;
   }
   return coordx;
 }
@@ -223,6 +231,8 @@ function getLastMove(i) {
   if (i === null || i === undefined) {
     return null;
   }
-  let lastMove = ["colonne " + getCoordx(i), "ligne " + getCoordy(i)].join(', ');
+  let lastMove = ["colonne " + getCoordx(i), "ligne " + getCoordy(i)].join(
+    ", "
+  );
   return lastMove;
 }
