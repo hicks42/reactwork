@@ -17,8 +17,6 @@ loggerMiddleware.startListening({
   },
   matcher: isAnyOf(addExpense, setIncome), //selection des actions a écouter
   effect: async (action, listenerAPI) => {
-    console.log(action);
     listenerAPI.dispatch(incrementCountActionPerformed);
-    console.log(action, listenerAPI.getState());
   },
 });

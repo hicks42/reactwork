@@ -6,3 +6,6 @@ body {
 .container {
   display: flex;
 }
+.outlet-container {
+  padding: 50px;
+}
