@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { TasksCount } from "./components/TasksCount/TasksCount";
 import { TasksInput } from "./components/TasksInput/TasksInput";
 import { TasksList } from "./components/TasksList/TasksList";

@@ -1,6 +1,6 @@
 import s from "./style.module.css";
 
-export function TasksInput(props) {
+export function TasksInput() {
   function submit(e) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);

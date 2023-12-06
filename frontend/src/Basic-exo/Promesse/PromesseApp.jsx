@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import s from "./style.module.css";
 
@@ -29,7 +30,7 @@ export function PromesseApp() {
           Le bouton déclenche un timeout de 1s et génere un nombre aléatoire a 2
           décimales entre 0 et 0.99.
           <br />
-          Si le nombre est superieur a 0.5 c'est un succés.
+          Si le nombre est superieur a 0.5 c&apos;est un succés.
         </p>
         {isLoading && <p>Loading...</p>}
         {!isLoading && <p>{result ? result : "rien encore"}</p>}

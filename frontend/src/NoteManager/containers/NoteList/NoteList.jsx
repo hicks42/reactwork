@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import s from "./style.module.css";
 
-export function NoteList(props) {
+export function NoteList(filteredList) {
   const noteList = useSelector((store) => store.NOTE.noteList);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export function NoteList(props) {
   return (
     <>
       <div className={`row container-fluid justify-content-center`}>
-        {noteList.map((note) => {
+        {filteredList.noteList.map((note) => {
           return (
             <div key={note.id} className={s.card_container}>
               <TextCard

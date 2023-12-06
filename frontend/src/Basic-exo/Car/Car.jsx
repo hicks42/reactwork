@@ -1,7 +1,6 @@
 export function Car(props) {
-
-  function onClick(){
-return props.onCarClick(2)
+  function onClick() {
+    return props.onCarClick(2);
   }
 
   return (
