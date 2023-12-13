@@ -13,8 +13,8 @@ export function NoteCreate(props) {
       ...formValues,
       created_at: new Date().toLocaleDateString(),
     });
-    dispatch({ type: "RESET_STATE" });
-    // dispatch(addNote(createdNote));
+    // dispatch({ type: "RESET_STATE" });
+    dispatch(addNote(createdNote));
     navigate("/NoteManagerApp/");
   }
   return (

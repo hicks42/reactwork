@@ -12,6 +12,7 @@ services:
       - ./frontend/build:/usr/frontend/build
       - ./frontend/package.json:/usr/frontend/package.json
       - ./frontend/.env.local:/usr/frontend/.env.local
+      - ./frontend/.eslintrc.js:/usr/frontend/.eslintrc.js
       # ###################################
       # - ./frontend:/usr/frontend
       # - ./frontend/ssl:/usr/frontend/ssl

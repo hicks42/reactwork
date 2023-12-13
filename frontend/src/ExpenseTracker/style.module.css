@@ -3,10 +3,10 @@
   color: white;
   background: url(assets/images/background.png) no-repeat;
   background-size: cover;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 15px;
+  height: 100vh;
 }
 
 .header {

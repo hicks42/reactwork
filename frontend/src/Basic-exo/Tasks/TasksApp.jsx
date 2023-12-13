@@ -17,7 +17,7 @@ export function TasksApp() {
   // useEffect(() => {
   //   setIsLoading(true);
   //   updateTasksList(task);
-  // });
+  // },[]);
   return (
     <>
       <div className={s.tasks_container}>

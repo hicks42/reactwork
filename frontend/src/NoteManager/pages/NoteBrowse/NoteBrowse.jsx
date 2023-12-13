@@ -10,11 +10,9 @@ export function NoteBrowse() {
   const noteList = useSelector((store) => store.NOTE.noteList);
   const filteredList = noteList.filter((note) => {
     const containsTitle = note.title
-      .trim()
       .toLowerCase()
       .includes(searchText.trim().toLowerCase());
     const containsContent = note.content
-      .trim()
       .toLowerCase()
       .includes(searchText.trim().toLowerCase());
     return containsTitle || containsContent;

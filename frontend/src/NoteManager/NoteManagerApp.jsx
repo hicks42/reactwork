@@ -12,7 +12,6 @@ export function NoteManagerApp() {
     const noteList = await NoteAPI.fetchAll();
     dispatch(setNoteList(noteList));
   }
-
   useEffect(() => {
     fetchAllNotes();
   }, []);
